@@ -51,12 +51,6 @@ class Store(db.Model):
         }
     
 
-# remove this class later
-class StudentStoresRelation(db.Model):
-    id = db.Column(db.Integer, primary_key=True, unique=True)
-    studentid=db.Column(db.Integer)
-    storeid = db.Column(db.Integer)
-
 class Item(db.Model):
     __tablename__ = 'item'
     product_id = db.Column(db.Integer, primary_key=True, unique=True)

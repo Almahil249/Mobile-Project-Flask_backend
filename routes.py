@@ -285,6 +285,8 @@ def register_routes(app, db):
             item.product_image = product_image.read()  
         db.session.add(item)
         db.session.commit()
+        item.product_image = r"/items/" + str(item.product_id) + r"/image"
+
         return jsonify({'message': 'Item created successfully', 'item': item.toMap()}), 200
 
 
@@ -304,6 +306,7 @@ def register_routes(app, db):
             product_image = request.files['product_image']
             item.product_image = product_image.read()
         db.session.commit()
+        item.product_image = r"/items/" + str(item.product_id) + r"/image"
         return jsonify({'message': 'Item updated successfully', 'item': item.toMap()}), 200
 
     @app.route('/items/<int:product_id>/', methods=['DELETE'])
