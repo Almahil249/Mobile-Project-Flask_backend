@@ -71,7 +71,7 @@ def register_routes(app, db):
                 # read DEFAULT_PROFILE_IMAGE.jpg and store it in the database (Large Binary)
         with open('DEFAULT_PROFILE_IMAGE.jpg', 'rb') as f:
             default_profile_image = f.read()
-        default_profile_image = compress_image(default_profile_image, target_size_kb=30)
+        default_profile_image = compress_image(default_profile_image, target_size_kb=20)
         student.profile_pic = default_profile_image
         print("data['gender']",data['gender'])
         if level:
